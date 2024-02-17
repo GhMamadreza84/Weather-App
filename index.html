@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App </title>
+    <link rel="stylesheet" href="./assets/fontawesome/css/all-fonts.min.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+
+    <div class="app-container">
+      <div class="title-box">
+        <button class="back-btn">
+          <i class="fa fa-arrow-left"></i>
+        </button>
+        <h3 class="title">Weather App</h3>
+      </div>
+
+      <section id="search-box-container">
+        <form action="#" class="weather-form">
+          <p class="error-message"></p>
+          <div class="search-box">
+            <input
+              type="text"
+              id="city-input"
+              placeholder="enter city name"
+              autocomplete="off"
+            />
+          </div>
+        </form>
+
+        <!-- seprator line -->
+        <span class="seprator"></span>
+
+        <button class="device-loc-btn">Get Device Location</button>
+      </section>
+
+      <section id="result-container">
+        <img src="" alt="weather icon" class="weather-icon" />
+        <p class="temperature-text"></p>
+        <p class="description-text"></p>
+        <p>
+          <i class="fa fa-map-marker"></i>
+          <span class="city-text"></span>
+        </p>
+
+        <div class="weather-bottom-details">
+          <div class="detail-column">
+            <i class="bx bxs-thermometer"></i>
+            <div>
+              <p class="feels-like-text"></p>
+              <p class="detail-text">Feels like</p>
+            </div>
+          </div>
+
+          <div class="detail-column">
+            <i class="bx bxs-droplet-half"></i>
+            <div>
+              <p class="humadity-text"></p>
+              <p class="detail-text">Humidity</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./main.js"></script>
+  </body>
+</html>

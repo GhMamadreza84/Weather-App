@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: varela, sahel;
+  height: 100vh;
+  background: linear-gradient(to bottom, #2c3e50, #1a1a1a);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: "varela";
+  src: url("./assets/varela-round.ttf");
+}
+
+@font-face {
+  font-family: "sahel" "";
+  src: url("./assets/sahel.ttf");
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button,
+input {
+  font-family: varela, sahel;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+img {
+  width: 100%;
+}
+
+.app-container {
+  background: #1f1f1f;
+  border-radius: 10px;
+  border: 1px solid #f9f9f9;
+  width: 390px;
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+/* title */
+.app-container .title-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.8rem;
+  padding: 1rem;
+  border-bottom: 0.7px solid #2e2e2e;
+}
+
+.app-container .title-box .back-btn {
+  color: springgreen;
+  font-size: 1.2rem;
+  background: transparent;
+  padding: 0.5rem 1rem;
+  padding-left: 0.4rem;
+  display: none;
+}
+
+.app-container .title-box .back-btn:active {
+  scale: 0.9;
+}
+
+.app-container .title-box .title {
+  color: springgreen;
+  font-weight: normal;
+  text-shadow: 0 0 10px #00ff8079;
+  font-size: 1.5rem;
+}
+
+/* city input */
+.app-container #search-box-container {
+  padding: 1rem;
+}
+
+.app-container #city-input {
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+
+.app-container .search-box.loading {
+  position: relative;
+}
+
+.app-container .search-box.loading::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: springgreen;
+  position: absolute;
+  bottom: 0;
+  animation: input-loading 1.1s ease infinite;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px rgba(0, 206, 103, 0.719);
+}
+
+@keyframes input-loading {
+  0% {
+    width: 10%;
+  }
+
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 10%;
+  }
+}
+
+.app-container #city-input::placeholder {
+  color: #888;
+}
+
+/* error message */
+.error-message {
+  color: #ff5252;
+  padding: 0.6rem;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #ff5252;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+/* seprator line */
+.app-container .seprator {
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  background: #333;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container .seprator::before {
+  content: "or";
+  color: #666;
+  font-size: 1.2rem;
+  padding: 0 15px;
+  background: #1f1f1f;
+}
+
+/* get device location button */
+.app-container .device-loc-btn {
+  cursor: pointer;
+  background: springgreen;
+  transition: 0.2s ease;
+  width: 100%;
+  padding: 0.9rem 0.5rem;
+  text-shadow: 0 0 10px #00000083;
+  font-size: 1.2rem;
+  border-radius: 7px;
+}
+
+.app-container .device-loc-btn:hover {
+  background: rgb(1, 222, 111);
+}
+.app-container .device-loc-btn:active {
+  background: springgreen;
+  scale: 0.98;
+}
+
+/* result weather styles */
+#result-container {
+  display: none;
+  text-align: center;
+}
+
+/* main weather icon */
+#result-container .weather-icon {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+#result-container .temperature-text {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#result-container .description-text {
+  margin: 1rem 0;
+}
+
+#result-container .city-text {
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+#result-container .weather-bottom-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#result-container .weather-bottom-details .detail-column {
+  display: flex;
+  flex: 1;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2e2e2e;
+  text-align: left;
+  gap: 0.3rem;
+}
+
+#result-container .weather-bottom-details .detail-text {
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+#result-container .weather-bottom-details i {
+  color: #43affc;
+  font-size: 2.2rem;
+}
