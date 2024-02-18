@@ -12,7 +12,7 @@ const descriptionText = document.querySelector(".description-text");
 const cityText = document.querySelector(".city-text");
 const feelsLikeText = document.querySelector(".feels-like-text");
 const humadityText = document.querySelector(".humadity-text");
-
+const loactionButton = document.querySelector(".device-loc-btn");
 // Api Data
 const API_KEY = "b991b5715d6b9f34da5e3ace0734bc37";
 const API_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&q=`;
@@ -99,9 +99,29 @@ backButton.addEventListener("click", () => {
 
   cityInput.value = "";
 });
-
+// Get lat & lan from use device
+loactionButton.addEventListener("click", () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  } else {
+    alert("Your browser not support geolocation api ");
+  }
+});
+// When geolocation works successfully
+const onSuccess = (position) => {
+  searchBox.classList.add("loading");
+  const { latitude, longitude } = position.coord;
+  getWeather(
+    `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
+  );
+};
+// When geolocation had error
+const onError = (error) => {
+  displayError(error.message);
+};
 // function to show error
 const displayError = (error) => {
   errorMessage.style.display = "block";
   errorMessage.textContent = error;
+  searchBox.classList.remove("loading");
 };
