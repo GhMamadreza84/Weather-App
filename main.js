@@ -110,7 +110,7 @@ loactionButton.addEventListener("click", () => {
 // When geolocation works successfully
 const onSuccess = (position) => {
   searchBox.classList.add("loading");
-  const { latitude, longitude } = position.coord;
+  const { latitude, longitude } = position.coords;
   getWeather(
     `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
   );
